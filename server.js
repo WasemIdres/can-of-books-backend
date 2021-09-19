@@ -15,6 +15,10 @@ const booksController =require("./controllers/books.controller")
 
 
 mongoose.connect(`${MONGO_SERVER}/bookStore`,{useNewUrlParser: true, useUnifiedTopology: true});
+app.get('/', (req, res) => {
+    res.status(200).json({ "message": "I'm working" })
+})
+
 app.get('/seed-data',(req,res)=>{
     seedBook();
         res.json({
