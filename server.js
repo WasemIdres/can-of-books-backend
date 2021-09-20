@@ -14,7 +14,7 @@ const booksController =require("./controllers/books.controller")
 
 
 
-mongoose.connect(`${MONGO_SERVER}/bookStore`,{useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect(`${process.env.MONGO_SERVER}`,{useNewUrlParser: true, useUnifiedTopology: true});
 app.get('/', (req, res) => {
     res.status(200).json({ "message": "I'm working" })
 })
