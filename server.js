@@ -6,11 +6,12 @@ const cors=require("cors");
 app.use(cors());
 const mongoose=require("mongoose");
 require("dotenv").config();
+app.use(express.json());
 app.use(cors());
 const PORT =process.env.PORT;
 const MONGO_SERVER=process.env.MONGO_SERVER;
 const {seedBook} =require("./models/Book");
-const booksController =require("./controllers/books.controller")
+const {booksController,createBookController,deleteBookController} =require("./controllers/books.controller")
 
 
 
@@ -27,6 +28,10 @@ app.get('/seed-data',(req,res)=>{
     
     })
 app.get('/books',booksController);
+
+app.post('/books',createBookController);
+
+app.delete('/books/:id',deleteBookController);
 
 app.listen(PORT,()=>{
     console.log(`Listening to port ${PORT}`);

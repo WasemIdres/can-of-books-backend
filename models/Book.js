@@ -34,4 +34,4 @@ let seedBook=()=>{
     newbook2.save();
     }
     
-module.exports={seedBook,bookModel} ;
+module.exports={seedBook,bookModel ,book} ;
