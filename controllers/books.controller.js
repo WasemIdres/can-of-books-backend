@@ -39,8 +39,9 @@ const updateBookController=async (req,res)=>{
         book.email=updatedData.email;
         book.save();
     });
-    let updatedBooksList=await bookModel.find({});
-    res.status(200).send(updatedBooksList);
+       setTimeout(()=>{
+        bookModel.find({}).then(data=>res.json(data));
+    },250)
 }
 
 module.exports = {booksController,createBookController,deleteBookController,updateBookController};
