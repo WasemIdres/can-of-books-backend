@@ -1,5 +1,5 @@
 "use strict";
-const { bookModel } = require("../models/Book");
+const { bookModel, book } = require("../models/Book");
 
 let booksController = (req, res) => {
     bookModel.find().then(data => {
@@ -29,4 +29,18 @@ const deleteBookController = (req, res) => {
     })
 }
 
-module.exports = {booksController,createBookController,deleteBookController};
+const updateBookController=async (req,res)=>{
+    let studnetID=req.params.id;
+    let updatedData=req.body;
+    bookModel.findOne({_id:studnetID}).then(book=>{
+        book.title=updatedData.title;
+        book.description=updatedData.description;
+        book.status=updatedData.status;
+        book.email=updatedData.email;
+        book.save();
+    });
+    let updatedBooksList=await bookModel.find({});
+    res.status(200).send(updatedBooksList);
+}
+
+module.exports = {booksController,createBookController,deleteBookController,updateBookController};

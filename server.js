@@ -11,7 +11,7 @@ app.use(cors());
 const PORT =process.env.PORT;
 const MONGO_SERVER=process.env.MONGO_SERVER;
 const {seedBook} =require("./models/Book");
-const {booksController,createBookController,deleteBookController} =require("./controllers/books.controller")
+const {booksController,createBookController,deleteBookController,updateBookController} =require("./controllers/books.controller")
 
 
 
@@ -32,6 +32,8 @@ app.get('/books',booksController);
 app.post('/books',createBookController);
 
 app.delete('/books/:id',deleteBookController);
+
+app.put("/books/:id",updateBookController);
 
 app.listen(PORT,()=>{
     console.log(`Listening to port ${PORT}`);
