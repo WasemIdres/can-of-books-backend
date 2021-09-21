@@ -2,8 +2,23 @@
 
 
 Name of feature: 
+
 -   bookModel to add books to db
 -   connected to db and did find in it
+
+Estimate of time needed to complete: 3 hours
+
+Start time: 5:00
+
+Finish time: 8:30
+
+Actual time needed to complete: 3 hours
+
+
+Name of feature: 
+
+-   delete from database
+-   post to data base
 
 Estimate of time needed to complete: 3 hours
 
